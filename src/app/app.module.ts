@@ -9,7 +9,12 @@ import { RouterModule, Routes } from "@angular/router";
 import { CurrentCandidateComponent } from './current-candidate/current-candidate.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgxPaginationModule } from "ngx-pagination";
+import { Ng2SearchPipeModule } from "ng2-search-filter";
+import { Ng2OrderModule } from "ng2-order-pipe";
+import { CandidateService } from "./candidate.service";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 const appRoutes: Routes = [
   {path: 'candidates', component: CandidatesComponent},
@@ -30,9 +35,15 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+
   ],
-  providers: [],
+  providers: [CandidateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

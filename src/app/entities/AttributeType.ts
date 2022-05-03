@@ -3,6 +3,6 @@ export interface AttributeType{
   name: string,
   basicType: string,
   validation: string,
-  isIdentifier: boolean,
-  isArchived: boolean
+  identifier: boolean,
+  archived: boolean
 }
