@@ -1,0 +1,31 @@
+.left-sidebar-filter{
+  top: 0;
+  position: sticky;
+  height: 100vh;
+}
+
+.filter-name{
+  align-items: center;
+  margin-top: 10px;
+}
+.filter-name-text{
+  font-size: 22px;
+}
+
+.filter{
+  padding-top: 10px;
+}
+.button-group{
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-around;
+  flex: 1 0 auto;
+}
+
+.sex-criteria{
+  display: flex;
+  justify-content: space-evenly;
+}
+.criteria-text{
+  margin-left: 5px;
+}
