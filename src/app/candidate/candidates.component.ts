@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Candidate } from "../entities/Candidate";
-import { CandidateService } from "../candidate.service";
+import { Candidate } from "../entity/Candidate";
+import { CandidateService } from "./candidate.service";
 import { HttpErrorResponse } from "@angular/common/http";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { NgTemplateOutlet } from "@angular/common";
+import { CombinedSearchFilterPipe } from "../filter/combined_filter/combined-search-filter.pipe";
+import { FilterSidebarComponent } from "../filter-sidebar/filter-sidebar.component";
 
 @Component({
-  selector: 'app-candidates',
+  selector: 'app-candidate',
   templateUrl: './candidates.component.html',
   styleUrls: ['./candidates.component.css']
 })
 export class CandidatesComponent implements OnInit {
 
   public candidates: Candidate[] = []
-  id: string = "";
-  status: string = "";
-  emails: string[] = []
-  pageNumber: number = 1;
-  pageSize: number = 2;
-
+  searchValue: string = ""
 
   constructor(private candidateService: CandidateService) {
   }
@@ -52,11 +51,11 @@ export class CandidatesComponent implements OnInit {
   }
 
   Search(){
-    if(this.id == ""){
+    if(this.searchValue == ""){
       this.ngOnInit()
     }else{
       this.candidates = this.candidates.filter(res => {
-        return res.id.toLocaleLowerCase().match(this.id.toLocaleLowerCase())
+        return res.id.toLocaleLowerCase().match(this.searchValue.toLocaleLowerCase())
       })
     }
   }
