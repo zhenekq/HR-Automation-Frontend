@@ -1,0 +1,104 @@
+<app-header></app-header>
+<div class="block_main">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-3 pb-5">
+        <app-candidate-side-menu></app-candidate-side-menu>
+      </div>
+      <div class="col-lg-8 pb-5">
+        <form class="row" #addForm="ngForm" (ngSubmit)="updateCandidateInfo()">
+          <div class="col-md-6 mt-2">
+            <div class="form-group">
+              <label for="account-fn">Firstname</label>
+              <input class="form-control" value="{{getCandidateData(candidate,'firstname')}}" #firstname name="firstname" type="text" id="account-fn" required="">
+            </div>
+          </div>
+          <div class="col-md-6 mt-2">
+            <div class="form-group">
+              <label for="account-ln">Lastname</label>
+              <input class="form-control" value="{{getCandidateData(candidate, 'lastname')}}" #lastname name="lastname" type="text" id="account-ln" required="">
+            </div>
+          </div>
+          <div class="col-md-6 mt-2">
+            <div class="form-group">
+              <label for="account-email">E-mail</label>
+              <input class="form-control" type="email" value="{{getCandidateData(candidate, 'email')}}" #email name="email" id="account-email">
+            </div>
+          </div>
+          <div class="col-md-6 mt-2">
+            <div class="form-group">
+              <label for="account-phone">Phone Number</label>
+              <input class="form-control" type="text" value="{{getCandidateData(candidate, 'phone')}}" #phone name="phone" id="account-phone" required="">
+            </div>
+          </div>
+          <div class="col-md-6 mt-2">
+            <div class="form-group">
+              <label for="account-pass">City</label>
+            </div>
+              <input class="form-control" type="text" value="{{getCandidateData(candidate, 'city')}}" #city name="city" id="account-pass">
+          </div>
+          <div class="col-md-6 mt-2">
+            <div class="form-group">
+              <label for="cityzhenship">Cityzenship</label>
+              <input class="form-control" type="text" value="{{getCandidateData(candidate, 'cityzenship')}}" #cityzenship name="cityzenship" id="cityzhenship">
+            </div>
+          </div>
+          <div class="col-md-6 mt-2">
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input class="form-control" type="text" value="{{getCandidateData(candidate, 'company')}}" #company name="company" id="company">
+            </div>
+          </div>
+          <div class="col-md-6 mt-2">
+            <div class="form-group">
+              <label for="passport">Passport</label>
+              <input class="form-control" type="text" value="{{getCandidateData(candidate, 'passport_number')}}" #passport_number name="passport_number" id="passport">
+            </div>
+          </div>
+          <div class="col-md-6 mt-2">
+            <div class="form-group">
+              <label for="date_of_birth">Date of birth</label>
+              <input class="form-control" type="date" value="{{getCandidateData(candidate, 'date_of_birth')}}" #date_of_birth name="date_of_birth" id="date_of_birth" >
+            </div>
+          </div>
+          <div class="col-md-6 mt-2">
+            <div class="form-group">
+              <label for="twitter">Twitter</label>
+              <input class="form-control" type="text" value="{{getCandidateData(candidate, 'twitter')}}" #twitter name="twitter" id="twitter" >
+            </div>
+          </div>
+          <div class="col-md-6 mt-2">
+            <div class="form-group">
+              <label for="linkedin">LinkedIn</label>
+              <input class="form-control" type="text" value="{{getCandidateData(candidate, 'linkedin')}}" #linkedin name="linkedin" id="linkedin" >
+            </div>
+          </div>
+          <div class="col-md-6 mt-2">
+            <div class="form-group">
+              <label for="facebook">Facebook</label>
+              <input class="form-control" type="text" value="{{getCandidateData(candidate, 'facebookid')}}" #facebookid name="facebookid" id="facebook" >
+            </div>
+          </div>
+          <div class="col-md-6 mt-2">
+            <div class="form-group">
+              <label for="telegram">Telegram</label>
+              <input class="form-control" type="text" value="{{getCandidateData(candidate, 'telegram')}}" #telegram name="telegram" id="telegram">
+            </div>
+          </div>
+          <div class="col-md-6 mt-2">
+            <div class="form-group">
+              <label for="git">Github</label>
+              <input class="form-control" type="text" value="{{getCandidateData(candidate, 'githubid')}}" #githubid name="githubid" id="git">
+            </div>
+          </div>
+          <div class="col-12">
+            <hr class="mt-4 mb-4">
+            <div class="d-flex flex-wrap justify-content-between align-items-center">
+              <button class="btn btn-style-1 btn-primary" data-toggle="modal" data-target="#confirm_sumbit" type="submit" (click)="setCandidateDataForUpdate(firstname.value, lastname.value, email.value, phone.value, city.value, cityzenship.value, company.value, passport_number.value, date_of_birth.value, twitter.value, linkedin.value, facebookid.value, telegram.value, githubid.value)" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly.">Update Profile</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

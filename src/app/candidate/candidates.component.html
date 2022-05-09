@@ -1,0 +1,95 @@
+<app-header></app-header>
+<div class="container bootstrap snippets bootdey mt-3">
+  <div class="row">
+    <div class="col left-sidebar-filter" style="background-color: #fff">
+      <app-filter-sidebar></app-filter-sidebar>
+    </div>
+    <div class="col col-lg-10">
+      <div class="input-group rounded mb-3" style="width: 100%; ">
+        <input type="search" class="form-control rounded" placeholder="Find candidate" [(ngModel)]="searchValue"  aria-label="Search" aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fa fa-search"></i>
+        </span>
+        <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#createNew">New</button>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="main-box no-header clearfix">
+            <div class="main-box-body clearfix">
+              <div class="table-responsive">
+                <table class="table user-list">
+                  <thead>
+                  <tr>
+                    <th><span>Candidate</span></th>
+                    <th><span>Basic info</span></th>
+                    <th><span>Links</span></th>
+                    <th><span>Actions</span></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let candidate of candidates | searchFilter: searchValue">
+                    <td>
+                      <img src="https://bootdey.com/img/Content/user_1.jpg" alt="">
+                      <a href="candidates/{{candidate.id}}" class="user-link">{{candidate.id}}</a>
+                      <div *ngIf="candidate.status == 'employed'">
+                        <b class="user-subhead label-active">{{candidate.status}}</b>
+                      <br>
+                      </div>
+                      <div *ngIf="candidate.status == 'unemployed'">
+                        <b class="user-subhead label-danger">{{candidate.status}}</b>
+                        <br>
+                      </div>
+                      <div *ngIf="candidate.status == 'created'">
+                        <b class="user-subhead label-default">{{candidate.status}}</b>
+                        <br>
+                      </div>
+                      <div>
+                        <span class="user-subhead">{{parseDate(candidate.lastContact)}}</span>
+                        <br>
+                      </div>
+                    </td>
+                    <td>
+                      <span>FIO: {{getCandidateFIO(candidate)}}</span>
+                      <br>
+                      <span>Keywords: <b>{{getCandidateKeywords(candidate)}}</b></span>
+
+                    </td>
+                    <td>
+                      <div class="attribute-type" *ngFor="let attribute of candidate.candidateAttributes">
+                        <span *ngIf="attribute.attributeTypes.identifier === true">{{attribute.attributeTypes.name}} </span>
+                        <a href="#" *ngIf="attribute.attributeTypes.identifier === true">{{attribute.value}}</a>
+                      </div>
+                    </td>
+                    <td style="width: 20%;">
+                      <a href="#" class="table-link text-warning" >
+                          <span class="fa-stack">
+                            <i class="fa fa-square fa-stack-2x"></i>
+                            <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                          </span>
+                      </a>
+                      <a href="#" class="table-link text-info">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                      <a href="#" class="table-link text-reset">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-create-new-candidate-modal></app-create-new-candidate-modal>
+
