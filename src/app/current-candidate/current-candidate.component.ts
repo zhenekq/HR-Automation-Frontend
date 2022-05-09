@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CandidateService } from "../candidate/candidate.service";
+import { CandidateService } from "../service/candidate/candidate.service";
 import { Candidate } from "../entity/Candidate";
 import { HttpErrorResponse } from "@angular/common/http";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -25,6 +25,7 @@ export class CurrentCandidateComponent implements OnInit {
 
   ngOnInit(): void {
     this.getId()
+    console.log(this.getId())
     this.getCandidateById(this.candidateId)
   }
 
@@ -106,7 +107,7 @@ export class CurrentCandidateComponent implements OnInit {
   updateCandidateInfo() {
     this.candidateService.updateByCandidateId(this.candidateId, this.candidate.candidateAttributes).subscribe(
       (response: CandidateAttributes[]) => {
-        console.log(123);
+        console.log(response)
         this.toastr.success("Candidate updated successfully!")
       },
       (error: HttpErrorResponse) => {
@@ -115,4 +116,5 @@ export class CurrentCandidateComponent implements OnInit {
       }
     )
   }
+
 }

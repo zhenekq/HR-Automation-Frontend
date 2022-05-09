@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Candidate } from "./entity/Candidate";
-import { CandidateService } from "./candidate/candidate.service";
+import { CandidateService } from "./service/candidate/candidate.service";
 import { HttpErrorResponse } from "@angular/common/http";
 
 @Component({

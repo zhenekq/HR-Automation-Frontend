@@ -9,7 +9,6 @@ export class Candidate{
   private _candidateAttributes: CandidateAttributes[];
   private _keywords: Keyword[];
 
-
   constructor(id: string, lastContact: Date, status: string, candidateAttributes: CandidateAttributes[], keywords: Keyword[]) {
     this._id = id;
     this._lastContact = lastContact;

@@ -1,0 +1,36 @@
+<div class="modal fade" id="createNew" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Create new candidate</h5>
+        <button type="button" class="btn close" data-bs-dismiss="modal" aria-label="Close">
+          <span style="font-size: 20px" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form was-validated">
+          <label class="col-lg-3 control-label">Name:</label>
+          <div class="col-lg-12">
+            <input class="form-control" type="text" [(ngModel)]="identifier" [ngModelOptions]="{standalone: true}" value="" required>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Status:</label>
+            <div class="col-lg-12">
+              <div class="ui-select">
+                <select id="user_time_zone" [(ngModel)]="status" [ngModelOptions]="{standalone: true}" class="form-control is-invalid">
+                  <option value="Created">created</option>
+                  <option value="Unemployed">unemployed</option>
+                  <option value="Employed">employed</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" (click)="createCandidate()" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+</div>

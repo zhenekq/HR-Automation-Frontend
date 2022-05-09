@@ -5,15 +5,17 @@ export class CandidateAttributes{
   private _value: string;
   private _valueSource: number;
   private _candidateId: string;
+  private _archived: boolean;
   private _attributeTypes: AttributeType;
 
 
-  constructor(id: number, value: string, valueSource: number, candidateId: string, attributeTypes: AttributeType) {
+  constructor(id: number, value: string, valueSource: number, candidateId: string, archived: boolean,  attributeTypes: AttributeType) {
     this._id = id;
     this._value = value;
     this._valueSource = valueSource;
     this._candidateId = candidateId;
     this._attributeTypes = attributeTypes;
+    this._archived = archived;
   }
 
 

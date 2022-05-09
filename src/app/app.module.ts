@@ -13,7 +13,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgxPaginationModule } from "ngx-pagination";
 import { Ng2SearchPipeModule } from "ng2-search-filter";
 import { Ng2OrderModule } from "ng2-order-pipe";
-import { CandidateService } from "./candidate/candidate.service";
+import { CandidateService } from "./service/candidate/candidate.service";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgbModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchFilterPipe } from './filter/one_by_all_data/search-filter.pipe';
@@ -21,11 +21,15 @@ import { FilterSidebarComponent } from './filter-sidebar/filter-sidebar.componen
 import { CombinedSearchFilterPipe } from './filter/combined_filter/combined-search-filter.pipe';
 import { NgToastModule, NgToastService } from "ng-angular-popup";
 import { ToastrModule } from "ngx-toastr";
+import { HistoryComponent } from './history/history.component';
+import { CandidateSideMenuComponent } from './candidate-side-menu/candidate-side-menu.component';
+import { CreateNewCandidateModalComponent } from './create-new-candidate-modal/create-new-candidate-modal.component';
 
 const appRoutes: Routes = [
   {path: 'candidates', component: CandidatesComponent},
   {path: 'candidates/:id', component: CurrentCandidateComponent},
-  {path: '**', component: NotFoundComponent}
+  {path: 'candidates/:id/history', component: HistoryComponent},
+  {path: '**', component: NotFoundComponent},
 ]
 
 @NgModule({
@@ -37,7 +41,10 @@ const appRoutes: Routes = [
     NotFoundComponent,
     SearchFilterPipe,
     FilterSidebarComponent,
-    CombinedSearchFilterPipe
+    CombinedSearchFilterPipe,
+    HistoryComponent,
+    CandidateSideMenuComponent,
+    CreateNewCandidateModalComponent
   ],
   imports: [
     BrowserModule,

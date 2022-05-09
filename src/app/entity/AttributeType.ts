@@ -4,5 +4,4 @@ export interface AttributeType{
   basicType: string,
   validation: string,
   identifier: boolean,
-  archived: boolean
 }

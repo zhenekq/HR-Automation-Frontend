@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Candidate } from "../entity/Candidate";
-import { CandidateService } from "./candidate.service";
+import { CandidateService } from "../service/candidate/candidate.service";
 import { HttpErrorResponse } from "@angular/common/http";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { NgTemplateOutlet } from "@angular/common";
